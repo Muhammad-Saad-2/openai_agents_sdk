@@ -4,10 +4,18 @@ from agents import Runner
 from my_agents.math_agent import math_agent
 import chainlit as cl 
 
+@cl.on_chat_start
+async def on_chat_start():
+    cl.user_session.set("history", [])
+    await cl.Message(content="hello I'm you maths agent, what brings you here").send()
+
 
 @cl.on_message
 async def main(message: cl.Message):
-    agent_response = await Runner.run(math_agent, input=message.content,  run_config=config)
+    history = cl.user_session.get("history")
+    history.append({"role":"user", "content":message.content})
+    agent_response = await Runner.run(math_agent, input=history,  run_config=config)
+
     
     await cl.Message(
         content = agent_response.final_output
