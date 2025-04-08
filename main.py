@@ -1,13 +1,17 @@
 import asyncio
 from LLM.gemini import config
-from agents import Runner
+from agents import Runner, function_tool
 from my_agents.math_agent import math_agent
 import chainlit as cl 
+
+
 
 @cl.on_chat_start
 async def on_chat_start():
     cl.user_session.set("history", [])
-    await cl.Message(content="hello I'm you maths agent, what brings you here").send()
+    await cl.Message(
+        content="hello I'm your maths agent, what brings you here"
+        ).send()
 
 
 @cl.on_message
