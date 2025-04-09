@@ -53,7 +53,7 @@ export-env {
       }
     }
 
-    let virtual_env = '/home/muhammad-saad/coding/codes/opnai-agnts/.venv'
+    let virtual_env = '/home/muhammad-saad/work/codes/opnai-agnts/.venv'
     let bin = 'bin'
 
     let is_windows = ($nu.os-info.family) == 'windows'

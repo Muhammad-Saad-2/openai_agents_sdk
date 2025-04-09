@@ -25,7 +25,7 @@
     @"%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-@for %%i in ("/home/muhammad-saad/coding/codes/opnai-agnts/.venv") do @set "VIRTUAL_ENV=%%~fi"
+@for %%i in ("/home/muhammad-saad/work/codes/opnai-agnts/.venv") do @set "VIRTUAL_ENV=%%~fi"
 
 @set "VIRTUAL_ENV_PROMPT=opnai-agnts"
 @if NOT DEFINED VIRTUAL_ENV_PROMPT (
